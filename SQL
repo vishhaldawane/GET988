@@ -1,0 +1,13 @@
+create table dept		
+(		
+deptno number,		
+deptname varchar2(20),		
+loc varchar2(20)		
+);	
+
+insert into dept values (10,'Accounting','New York');
+insert into dept values (20,'Research','New Jersey');
+insert into dept values (30,'Sales','Dallas');
+insert into dept values (40,'Operations','Chicago');
+
+select * from dept;
