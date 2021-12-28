@@ -655,3 +655,25 @@ ORA-02290: check constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.CHECK_COMM_GT_500) vi
 ORA-02291: integrity constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.MANAGER_KEY_NOT_FOUND) violated - parent key not found ORA-06512: at "SYS.DBMS_SQL", line 1721
 ORA-01400: cannot insert NULL into ("SQL_DWNVRSAKSUJJLOLQVJYUBVTDU"."EMP13"."ENAME") ORA-06512: at "SYS.DBMS_SQL", line 1721
 
+
+CREATE TABLE EMP15
+(
+   EMPNO NUMBER         constraint emp15_empno_pk           PRIMARY KEY,
+   ENAME VARCHAR2(20)   constraint emp15_ename_not_null          NOT NULL,
+   GENDER CHAR(1)       DEFAULT 'F',
+   EMAIL VARCHAR2(20)   constraint emp15_email_not_unique   UNIQUE,
+   JOB VARCHAR2(20)     constraint emp15_check_job                CHECK (JOB IN('MANAGER','SALESMAN','CLERK','ANALYST')),
+   MGR NUMBER           constraint emp15_manager_key_not_found    REFERENCES EMP15,
+   HIREDATE DATE        constraint emp15_check_hiredate           CHECK (HIREDATE <= '26-DEC-2021'),
+   SAL NUMBER           constraint emp15_check_sal_gt_5k          CHECK ( SAL > 5000),
+   COMM NUMBER          constraint emp15_check_comm_gt_500        CHECK (COMM > 500),
+   DEPTNO NUMBER
+ );
+INSERT INTO EMP15 VALUES (1235,'JANE','F','jane@gmail.com','MANAGER',null,'20-DEC-2021',6000,600,NULL);
+INSERT INTO EMP15 VALUES (1236,'JACK','M','jack@gmail.com','MANAGER',null,'20-DEC-2021',6000,600,NULL);
+
+SELECT * FROM EMP15
+
+
+INSERT INTO EMP15 (empno,ename,email,job,mgr,hiredate,sal,comm,deptno) VALUES (1239,'pop','pop@gmail.com','MANAGER',null,'20-DEC-2021',6000,600,NULL);
+
