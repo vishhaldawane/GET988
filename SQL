@@ -630,3 +630,28 @@ CREATE TABLE EMP13
 SELECT * FROM EMP
 SELECT * FROM DEPT
 
+
+CREATE TABLE EMP13
+(
+   EMPNO NUMBER         constraint emp13_empno_pk           PRIMARY KEY,
+   ENAME VARCHAR2(20)   constraint ename_not_null           NOT NULL,
+   EMAIL VARCHAR2(20)   constraint emp13_email_not_unique   UNIQUE,
+   JOB VARCHAR2(20)     constraint check_job                CHECK (JOB IN('MANAGER','SALESMAN','CLERK','ANALYST')),
+   MGR NUMBER           constraint manager_key_not_found    REFERENCES EMP13,
+   HIREDATE DATE        constraint check_hiredate           CHECK (HIREDATE <= '26-DEC-2021'),
+   SAL NUMBER           constraint check_sal_gt_5k          CHECK ( SAL > 5000),
+   COMM NUMBER          constraint check_comm_gt_500        CHECK (COMM > 500),
+   DEPTNO NUMBER
+ );
+INSERT INTO EMP13 VALUES (1235,null,'jane@gmail.com','MANAGER',null,'20-DEC-2021',6000,600,NULL);
+
+
+ORA-00001: unique constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.EMP13_EMPNO_PK) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-00001: unique constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.EMP13_EMAIL_NOT_UNIQUE) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-02290: check constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.CHECK_JOB) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-02290: check constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.CHECK_HIREDATE) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-02290: check constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.CHECK_SAL_GT_5K) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-02290: check constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.CHECK_COMM_GT_500) violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-02291: integrity constraint (SQL_DWNVRSAKSUJJLOLQVJYUBVTDU.MANAGER_KEY_NOT_FOUND) violated - parent key not found ORA-06512: at "SYS.DBMS_SQL", line 1721
+ORA-01400: cannot insert NULL into ("SQL_DWNVRSAKSUJJLOLQVJYUBVTDU"."EMP13"."ENAME") ORA-06512: at "SYS.DBMS_SQL", line 1721
+
