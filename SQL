@@ -677,3 +677,89 @@ SELECT * FROM EMP15
 
 INSERT INTO EMP15 (empno,ename,email,job,mgr,hiredate,sal,comm,deptno) VALUES (1239,'pop','pop@gmail.com','MANAGER',null,'20-DEC-2021',6000,600,NULL);
 
+
+
+CREATE TABLE DEPT12
+(
+  DEPTNO NUMBER PRIMARY KEY,
+  DNAME VARCHAR2(20) NOT NULL,
+  LOC VARCHAR2(20)
+ );
+ 
+ CREATE TABLE EMP19
+ (
+   EMPNO NUMBER CONSTRAINT EMP19_PK PRIMARY KEY,
+   ENAME VARCHAR2(20),
+   SAL NUMBER check ( sal > comm) , # Column check constraint cannot reference other columns 
+   com, number,
+   DNO NUMBER CONSTRAINT EMP19_FK  REFERENCES DEPT12
+ );
+
+INSERT INTO DEPT12 VALUES (10,'IT','NY');
+INSERT INTO DEPT12 VALUES (20,'TEST','ND');
+INSERT INTO DEPT12 VALUES (30,'QMS','NJ');
+INSERT INTO DEPT12 VALUES (40,'OPERATIONS','NM');
+INSERT INTO EMP16 VALUES (1011,'JACK',5000,10);
+INSERT INTO EMP16 VALUES (1012,'JANE',6000,10);
+
+
+INSERT INTO EMP16 VALUES (1013,'JULIE',3000,20);
+INSERT INTO EMP16 VALUES (1014,'JULIA',4000,20);
+
+
+INSERT INTO EMP16 VALUES (1015,'JAANET',8000,30);
+INSERT INTO EMP16 VALUES (1016,'JENNIE',9000,30);
+
+
+
+SELECT * FROM EMP16
+
+
+SELECT * FROM DEPT12
+
+CREATE TABLE EMP17
+(
+   EMPNO NUMBER,         
+   ENAME VARCHAR2(20)   constraint emp17_ename_not_null          NOT NULL,
+   GENDER CHAR(1)       DEFAULT 'F',
+   EMAIL VARCHAR2(20),  JOB VARCHAR2(20),    
+   MGR NUMBER,          HIREDATE DATE,       
+   SAL NUMBER,          COMM NUMBER,        
+   DEPTNO NUMBER,
+   constraint emp17_empno_pk                 PRIMARY KEY(EMPNO),
+   constraint emp17_email_not_unique         UNIQUE(EMAIL),
+   constraint emp17_check_job                CHECK (JOB IN('MANAGER','SALESMAN','CLERK','ANALYST')),
+   constraint emp17_manager_key_not_found    FOREIGN KEY (MGR) REFERENCES EMP17,
+   constraint emp17_dept_no_not_found        FOREIGN KEY (DEPTNO) REFERENCES DEPT12,
+   constraint emp17_check_hiredate           CHECK (HIREDATE <= '26-DEC-2021'),
+   constraint emp17_check_sal_gt_5k          CHECK ( SAL > 5000),
+   constraint emp17_check_comm_gt_500        CHECK (COMM > 500),
+   CONSTRAINT EMP17_CHECK_SAL_GT_COMM        check (sal > comm )
+ );
+ 
+ INSERT INTO EMP17 VALUES (1237,'JANE','F','jane7@gmail.com','MANAGER',null,'20-DEC-2021',5500,600,45);
+
+CREATE TABLE EMP19
+(
+   EMPNO NUMBER,         
+   ENAME VARCHAR2(20)   constraint emp19_ename_not_null          NOT NULL,
+   GENDER CHAR(1)       DEFAULT 'F',
+   EMAIL VARCHAR2(20),  JOB VARCHAR2(20),    
+   MGR NUMBER,          HIREDATE DATE,       
+   SAL NUMBER,          COMM NUMBER,        
+   DEPTNO NUMBER,
+   PRIMARY KEY(EMPNO),
+   UNIQUE(EMAIL),
+   CHECK (JOB IN('MANAGER','SALESMAN','CLERK','ANALYST')),
+   FOREIGN KEY (MGR) REFERENCES EMP17,
+   FOREIGN KEY (DEPTNO) REFERENCES DEPT12,
+   CHECK (HIREDATE <= '26-DEC-2021'),
+   CHECK ( SAL > 5000),
+   CHECK (COMM > 500),
+   check (sal > comm )
+ );
+ 
+
+
+
+
