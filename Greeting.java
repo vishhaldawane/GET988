@@ -232,19 +232,31 @@ entity		color		drinkMilk() { }
 		a. class extension
 		
 					Doctor <-- ability of Doctor to appear as Surgeon
-					|
+					|diagnose() { }
 			----------------
 			|isA
 			Surgeon <-- ability of Surgeon to appear as HeartSurgeon
-			|
+			|diagnose() { }
 		----------
-		|isA
+		|isA diagnose() { }
 	HeartSurgeon <-- 
 		
 		b. function overloading
+			ability of a function to be redefined on the following terms
+			i. type of parameters
+			ii. number of parameters
+			iii. sequence of type of parameters
+			
+			
 		c. function overriding
+			let the child class redefine its parent's function
+			with same name and arguments
+			- child class is hiding the parent class's function
+			
+				
 		d. operator overloading
-		
+			ability of an operator to play different roles
+			
 	
 	
 	4. Inheritance
@@ -254,11 +266,118 @@ entity		color		drinkMilk() { }
 		
 		- reuse of the code
 		
+		EVERY CONSTRUCTOR GIVES A CALL TO ITS PARENT'S CONSTRUCTOR
+		USING super();
+		
+		class A 			// A is not inheriting to B
+		{
+			 private int i;
+			 
+			 A() { 
+			 	super();
+			 }
+		}
+		
+		class B extends A   // class B is acquiring from A
+		{
+			private int j;
+			B() { 
+				super();
+			}
+		}
+		
+		there are 2 variables inside class B, ie i and j
+		
+		
+		class C extends B   // class C is acquiring from B
+		{
+			private int k;
+			C() { 
+				super();
+			}
+			
+		}
+		
+		there are 3 variables inside class C, ie i,j and k
+		
+		
+		
+		1. linear
+			A  single leve
+			|
+			B
+			
+			A multi-level
+			|
+			B
+			|
+			C
+			
+		2. non - linear
+		
+				hierarchical level 
+				
+				InterfaceX
+				|
+				A		InterfaceY	InterfaceZ
+				|		|			|
+				B--------------------
+				|
+				|	InterfaceD
+				]		|
+				+--------
+				|
+				C
+		
+		
+		
 	5. Object communication
 	
 		ability of a business entity to talk to other business entities
 		
+		
+		class BankAccount{
+			
+			void withdraw() {
+			
+			}
+		}
+		
+		class Cashier
+		{
+			void dispenseCash(BankAccount ref, double amt) {
+				ref.withdraw(amt);
+			}
+		}
+		
+		class Test {
+			void main() {
+				BankAccount ba = new BankAccount();
+				Cashier  cashier = new Cashier();
+				cashier.dispenseCash(ba,500);
+			}
+		}
+		
 	
+	=======================================================================			
+
+				final				static					abstract
+	=======================================================================			
+				
+	field		CONSTANT/
+				immutable
+				field
+	-----------------------------------------------------------------------
+				cannot be
+	method		overridden
+				by the child
+				class
+	-----------------------------------------------------------------------
+				cannot be
+	class		extended/
+				subclassed
+	-----------------------------------------------------------------------
+
 	
 	
 

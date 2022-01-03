@@ -9,6 +9,9 @@ public class PhoneTest {
 		myPhone.dial("Vishhal");
 		myPhone.dial(33, 454545);
 		myPhone.dial(111);
+		System.out.println(10+20+" output is "+10+20);
+		System.out.println(10+20+" output is "+(10+20));
+
 	}
 }
 class Phone

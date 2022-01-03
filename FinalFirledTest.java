@@ -38,7 +38,7 @@ class Cricketer
 {
 	int score;
 	
-	final void hitSixer() {
+	final void hitSixer() { //cannot be overridden
 		System.out.println("Hitting sixer..");
 		score = score + 6;
 	}
@@ -51,7 +51,7 @@ class Cricketer
 	}
 }
 
-class Batsman extends Cricketer
+final class Batsman extends Cricketer
 {
 	//int score;
 	
@@ -68,4 +68,8 @@ class Batsman extends Cricketer
 	}
 }
 
+class HockyPlayer extends Batsman
+{
+	
+}
 

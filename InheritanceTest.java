@@ -21,6 +21,7 @@ public class InheritanceTest {
 }
 class GrandFather
 {
+	
 	GrandFather() {
 		System.out.println("GrandFather() constructor...");
 	}

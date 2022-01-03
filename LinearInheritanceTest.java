@@ -1,5 +1,23 @@
 package com.lti;
-
+/*
+ * 
+ * 			Person*
+ * 				|
+ * 		------------------
+ * 		|			|
+ * 	Student*		Magician
+ * 		|			 some datamembers + some member functions
+ * --------------
+ * |			|
+ * Employee*	MedicalStudent
+ * 					| some data members
+ * 					| some member functions
+ * 					|
+ * 				  Doctor
+ * 					| some data members
+ * 					| some member functions
+ * 
+ */
 public class LinearInheritanceTest {
 	public static void main(String[] args) {
 		
@@ -19,6 +37,11 @@ public class LinearInheritanceTest {
 		Employee e = new Employee();
 		e.setEmployee('F', 27, "Jane", 125, 'B', 85.4f, 7575, "Analyst",  5000);
 		e.show();
+		System.out.println("--------");
+		
+		Magician magician = new Magician();
+		magician.setMagician('M', 33, "Ritesh Kumar", 52, "AbraCaDabra", 90000);
+		magician.showMagic();
 	}
 }
 
@@ -43,6 +66,34 @@ class Person {
 		
 	}
 }
+
+class Magician extends Person { //every Magician isA Person
+
+	private int    numberOfMagics;
+	private String magicShowName;
+	private float  hiringCost;
+	
+	public Magician() {
+		System.out.println("\tMagician() constructor..");
+	}
+
+	public void setMagician(char gender, int age, String name, int numberOfMagics, String magicShowName, float hiringCost) {  
+		 super.setPerson(gender, age, name); //forward it to the super class
+	     this.numberOfMagics = numberOfMagics;
+	     this.magicShowName = magicShowName;
+	     this.hiringCost = hiringCost;
+	}
+	
+	public void showMagic() {
+		
+		super.show();
+		System.out.println("Number Of Magics   : "+numberOfMagics);
+		System.out.println("Magic Show Name    : "+magicShowName);
+		System.out.println("Hiring cost        : "+hiringCost);
+		
+	}
+}
+
 
 class Student extends Person { //every Student isA Person
 
