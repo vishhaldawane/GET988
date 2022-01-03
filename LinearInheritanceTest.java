@@ -2,13 +2,18 @@ package com.lti;
 
 public class LinearInheritanceTest {
 	public static void main(String[] args) {
+		
 		Person p = new Person();
 		p.setPerson('F',22,"Julia");
 		p.show();
+		
 		System.out.println("--------");
+		
 		Student s = new Student();
+		
 		s.setStudent('F',23,"Rita", 123,'A', 95.9f);
 		s.show();
+		
 		System.out.println("--------");
 		
 		Employee e = new Employee();
