@@ -1,6 +1,14 @@
 package com.lti;
 public class BankAccount { // "Class" is the blueprint of an "Object"	
-	int accountNumber=9; String accountHolder="Jack"; double accountBalance=9.9;	
+	
+	private int accountNumber=9; 		//data
+	private String accountHolder="Jack";  //data
+	private double accountBalance=9.9;	 //data
+	
+	
+	
+	//code is below all methods
+	
 	//there is a default constructor in this class
 	BankAccount() {
 		System.out.println("BankAccount()...explicit constructor...");
