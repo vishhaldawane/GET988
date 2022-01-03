@@ -68,7 +68,8 @@ final class Batsman extends Cricketer
 	}
 }
 
-class HockyPlayer extends Batsman
+//The type HockyPlayer cannot subclass the final class Batsman
+class HockyPlayer // extends Batsman
 {
 	
 }

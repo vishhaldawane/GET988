@@ -71,6 +71,9 @@ public class StaticTest {
 		kite4.showKite();
 		
 		Kite.showKiteCount();
+		
+		Kite1 k1 = new Kite1("Vishhal","Pink",99);
+		System.out.println("k1 "+k1); // + will call the toString();
 
 	}
 }
@@ -104,6 +107,39 @@ class Kite
 		System.out.println("--------");
 	}
 	
+}
+
+class Kite1
+{
+	private String owner;
+	private String color;
+	private int length;
+	
+	private static int kiteCount;
+
+	public Kite1(String owner, String color, int length) {
+		super();
+		this.owner = owner;
+		this.color = color;
+		this.length = length;
+	}
+
+	@Override
+	public String toString() {
+		return "Kite1 [owner=" + owner + ", color=" + color + ", length=" + length + "]";
+	}
+
+	
+	
 	
 	
 }
+
+
+
+
+
+
+
+
+

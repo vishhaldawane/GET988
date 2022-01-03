@@ -359,23 +359,28 @@ entity		color		drinkMilk() { }
 		}
 		
 	
+	
+	int num=190;
+	
 	=======================================================================			
 
-				final				static					abstract
+				final				static				abstract/partial/
+															incomplete
 	=======================================================================			
 				
-	field		CONSTANT/
-				immutable
-				field
+	field		CONSTANT/			SHARED					NA
+				immutable			FIELD ACROSS
+				field				ALL THE OBJECTs
+									of the class
 	-----------------------------------------------------------------------
-				cannot be
-	method		overridden
-				by the child
+				cannot be			TO REFER			partial contract
+	method		overridden			OTHER STATIC		of a class/method
+				by the child		MEMBER				without code body
 				class
 	-----------------------------------------------------------------------
-				cannot be
-	class		extended/
-				subclassed
+				cannot be			class within		a class that cannot
+	class		extended/			a class/			be instantiated/instance
+				subclassed			nested class		of it can never be prepared
 	-----------------------------------------------------------------------
 
 	
