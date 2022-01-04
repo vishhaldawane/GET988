@@ -19,6 +19,20 @@ public class InstrumentTest {
 		vio.tuneStrings();
 		vio.play();
 		vio.bow();
+
+		System.out.println("--------");
+
+		Cutter cutter = new Cutter();
+		cutter.sterilize();
+		cutter.cut();
+		cutter.operate();
+		
+		System.out.println("--------");
+
+		Needle needle = new Needle();
+		needle.sterilize();
+		needle.poke();
+		needle.operate();
 		
 		
 		
@@ -27,18 +41,18 @@ public class InstrumentTest {
 /*
  
  
- 		MusicalInstrument
- 			|play();
- 	--------------------------
- 	|			|			|
-StringBased		AirBased	DrumBased
-Musical			Musical		Musical
-Instrument  	Instrument	Instrument
-tuneStrings();  blowAir();	tapSurface();
-    |				|				|
- ----------		-----------		------------
- |		| |		|		|		|		|
- Guitar | Sitar	Flute Saxophone Tabla	Conga
+ 		MusicalInstrument							MedicalInstrument
+ 			|play();										|operate();
+ 	--------------------------						--------------------------
+ 	|			|			|						|			|			|
+StringBased		AirBased	DrumBased		  Surgical     NonSurgical	Pathological
+Musical			Musical		Musical			  Medical	   Medical		Medical
+Instrument  	Instrument	Instrument		  Instrument   Instrument	Instrument
+tuneStrings();  blowAir();	tapSurface();	   sterilize();  sanitize();  readAccuracy();  						
+    |				|				|				|			|			|
+ ----------		-----------		------------	-----------	 ---------	-------------
+ |		| |		|		|		|		|		|		|	 |		|	|		   |
+ Guitar | Sitar	Flute Saxophone Tabla	Conga  Cutter Needle Tray Plier GlucoMeter ECGMachine
  	Violin
  		|
  		Cello
@@ -47,6 +61,11 @@ tuneStrings();  blowAir();	tapSurface();
 abstract class MusicalInstrument // incomplete
 {
 	abstract void play(); //incomplete
+}
+
+abstract class MedicalInstrument // incomplete
+{
+	abstract void operate(); //incomplete
 }
 
 /*---------------------------*/
@@ -115,4 +134,59 @@ abstract class DrumBasedMusicalInstrument extends MusicalInstrument // incomplet
 {
 	abstract void tapSurface(); //incomplete
 }
+
+/*---------------------------*/
+
+
+abstract class SurgicalMedicalInstrument extends MedicalInstrument
+{
+	abstract void sterilize();
+}
+
+class Cutter extends SurgicalMedicalInstrument
+{
+
+	@Override
+	void sterilize() {
+		System.out.println("Sterilizing the cutter....");
+		
+	}
+
+	@Override
+	void operate() {
+		// TODO Auto-generated method stub
+		System.out.println("Operating the cutter....");
+	}
+	
+	void cut() {
+		System.out.println("Cutting...via the cutter....");
+	}
+	
+}
+
+
+class Needle extends SurgicalMedicalInstrument
+{
+
+	@Override
+	void sterilize() {
+		System.out.println("Sterilizing the Needle....");
+		
+	}
+
+	@Override
+	void operate() {
+		// TODO Auto-generated method stub
+		System.out.println("Operating the Needle....");
+	}
+	
+	void poke() {
+		System.out.println("Poking the needle...");
+	}
+	
+}
+
+
+
+
 
