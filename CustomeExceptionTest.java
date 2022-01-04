@@ -6,15 +6,23 @@ public class CustomeExceptionTest {
 		myCar.startTheCar();
 	}
 }
-class RedSignalDishnouredException extends RuntimeException{ //user defined exception
+class RedSignalDishnouredException extends RuntimeException{ //unchecked : user defined exception
 	RedSignalDishnouredException(String msg) {
 		super(msg);
 	}
 }
-class TyrePuncturedException extends RuntimeException{
+class TyrePuncturedException extends RuntimeException{ //unchecked
 	TyrePuncturedException(String msg) {
 		super(msg);
 	}
+}
+
+class StepneyFailedException extends Exception  //checked
+{
+	StepneyFailedException(String str) {
+		super(str);
+	}
+	
 }
 class Car
 {
@@ -25,21 +33,32 @@ class Car
 		{
 			longDrive(); //Unhandled exception type Exception
 		}
-		catch(TyrePuncturedException e) {
-			System.out.println("Problem1 : "+e.getMessage());
+		catch(StepneyFailedException sfEx) {
+			System.out.println("Probelm 3 : "+sfEx.getMessage());
 		}
-		catch(RedSignalDishnouredException e) {
-			System.out.println("Problem2 : "+e.getMessage());
-		}
+//		catch(TyrePuncturedException e) {
+//			System.out.println("Problem1 : "+e.getMessage());
+//		}
+//		catch(RedSignalDishnouredException e) {
+//			System.out.println("Problem2 : "+e.getMessage());
+//		}
 	}
 	
 	// checked exceptions must be declared in the THROWS clause of the method
 	
-	void longDrive() 
+	void longDrive() throws StepneyFailedException 
 	{
+		
+		
 		for(int i=1;i<=25;i++) {
-			System.out.println(i+" Km completed");
 			double value = Math.random()%10;
+			if(value<0.012) {
+				StepneyFailedException sfEx = new StepneyFailedException("Oh No!!! spare tyre is punctured....");
+				throw sfEx;
+			}
+			
+			System.out.println(i+" Km completed");
+			
 			//System.out.println("value "+value);
 			if(value > 0.75 && value < 0.80 ) {
 			//	Exception rte = new Exception("Oh No!!! Red Signal is dishonoured...");
