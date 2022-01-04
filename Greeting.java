@@ -385,7 +385,164 @@ entity		color		drinkMilk() { }
 
 	
 	
+Abstract class
+----------------
 
+
+	a class with partial contract
+	
+	IT CAN HAVE MULTIPLE ABSTRACT METHODS
+	
+	AND ALL THESE ABSTRACT METHODS MUST BE
+	DEFINED BY THE IMMEIDATE NON-ABSTRACT CHILD
+	
+	ABSTRACT CLASS MAY HAVE NON-ABSTRACT METHODS TOO
+	
+	IT CAN ALSO HAVE CONSTRUCTOR!!! WHATS THE USE OF IT
+	
+	IT IS FOR DERIVED CLASSES / CHILD 
+	
+	
+Interfaces
+-----------
+
+
+		it is a pure abstract class
+		
+		it only has abstract methods
+		
+		it cannot have non-abstract methods
+		
+		by default all methods are public and abstract
+		
+		and all variables are static final
+		
+		
+		
+		In java one class can  only extend from one class
+		
+		class A
+		{
+		}
+		
+		class B {
+		}
+		
+		class C extends B,A //invalid
+		{
+		
+		}
+		
+		but one interface can extend from another interface(s)
+		
+		
+=========================
+
+	Exception handling
+	 |
+	 runtime error
+	 
+	 						Errors
+	 							|
+	 	--------------------------------------------------
+	 		|		|		|		  |			  |
+	 	compile  linker	  runtime 	fatal  		logical
+	 	 |		 |			|		  |				|
+	 	syntax  library  Exception	disk error		4 x or + 4 = 16 or 8
+	 			missing				i/o error
+	 								overflow
+	 
+	 
+	 				Object
+	 					|
+	 			------------------
+	 			|				|
+	 						Throwable
+	 							|
+	 					-----------------
+	 					|			|
+	 					Error		Exception
+	 								|  "checked" by the compiler
+	 						----------------------------------------
+	 						|					|				|
+	 				RuntimeException			IOException  SQLException
+	 						|"unchecked" by 		|
+	 						| the compiler	 FileNotFoundException
+	 						|
+	 	-----------------------------------------------
+	 	|			|  |   | 				 	| 	|
+ArithmeticException |  | NullPointerException 	| RedSignalDishnouredException
+	 		        | InputMismatchedException	TyrePuncturedException			
+	 	IndexOutOfBoundsException
+	 				|
+	 	-------------------------
+	 	|						|
+ArrayIndexOutOfBoundsException StringIndexOutOfBoundsException			
+	 						
+	 						
+	 	If you want to lock you house
+	 	
+	 		that depends upon the lock type
+	 		
+	 		1. Lock + Key <-- manual lock
+	 		
+	 		2. Lock with MemoryNumber
+	 						
+	 		3. AutoLockDoor <- here lock is assembled on the door
+	 				and KEY must be carried by you while exiting/locking
+	 		
+	 		4. AutoLock + Key
+	 		
+	 		
+	 				Car
+	 				|
+	 		-------------------
+	 		|				| BEFORE
+	 		shortDrive()	longDrive() DURING
+ 	 		5				25 AFTER
+	 		|				|
+	 	1	no stepney 		stepney check is must*
+	 		check
+	 		
+	 	2	key				key			   - CarKeyNotFoundExeption
+	 	3	DrivingLicence	DrivingLicence - DrivingLicenceExpiredExeption
+	 	4.	PUC				PUC			   - PUCNotRenewedException
+	 	5.	Insurance		Insurance	   - CarInsuranceNotRenewedException
+	 	6.	RC Book			RC Book		   - RCBookNotFoundException
+	 		
+	 	7.	no fuel check	fuel check*
+	 	
+	 	8.  no tyre pressure  all tyres must be checked *
+	 		check			  for the pressure
+	 		
+	 		
+	 		
+	 		
+	 		
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
 
 
 
