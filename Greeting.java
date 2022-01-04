@@ -515,13 +515,43 @@ ArrayIndexOutOfBoundsException StringIndexOutOfBoundsException
 	 	8.  no tyre pressure  all tyres must be checked *
 	 		check			  for the pressure
 	 		
+	 Packages
+	 ---------
+	 		to organize relevant classes
+	 		similar to the operating system folders
 	 		
 	 		
-	 		
-	 		
+	 			java <-- folder
+	 			 |
+	 	-------------------------
+	 	|		|		|		|
+	 	lang	sql		util	io <-- folders
+	 	|		|		|		 |
+	 System  Driver		List	File
+	 String  ResultSet	Set		FileInputStream
+	 Object  Statement	Collection
 	 
 	 
-	 
+	 				jungle						1.        <-- default/package - within the package accessible
+	 				|							2. private <-- accessible only within the class
+	 		---------------------------			3. protected <-- can be referred by the child class within same package
+	 		|		|		|		|				but cannot be referred outside of the package via super class ref
+	 		|		|		|		|
+	 		|		|		|		|			4. public <-- anywhere
+	 		tree	river	cave	use
+	 		|		|		|		|
+	 		Monkey Fish		Tiger	JungleTest
+	 		|							|
+	 Monkey.java					JungleTest.java
+	 -----------					----------------
+	 package jungle.tree;			package jungle.use; <--declare it
+	 class Monkey	{				import jungle.tree.Monkey;<--avail it
+	 	void jump() {				class JungleTest {
+	 	}								void main() {
+	 }										Monkey m = new Monkey();<--use it
+	 										m.jump();<--use it
+	 									}
+	 								}
 	 
 	 
 	 
