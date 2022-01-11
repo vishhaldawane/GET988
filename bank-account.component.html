@@ -28,16 +28,29 @@
 <hr>
 
 <table border=5>
-    <th>Account Number</th>
-    <th>Account Holder</th>
-    <th>Account Balance</th>
-    <th>Account Status</th>
+    <th>Account Number</th><th>Account Holder</th>
+    <th>Account Balance</th><th>Account Status</th>
+    <th>Address</th>
     <tr *ngFor="let x of baObjArray">
         <td>{{x.accountNumber}}</td>
         <td>{{x.accountHolder}}</td>
         <td>{{x.accountBalance}}</td>
         <td><div *ngIf="x.isActive; else PopCorn"> Active  </div>
             <ng-template #PopCorn>InActive </ng-template>
+        </td>
+        <td>
+            <img src='{{x.image}}' height="150" width=150>
+        </td>
+            <table border=2>
+                <th>Area</th><th>Street</th><th>City</th><th>State</th><th>Country</th><th>Pin</th>
+                <tr>
+                    <td>{{x.address.area}}</td>
+                    <td>{{x.address.street}}</td>
+                    <td>{{x.address.city}}</td>
+                    <td>{{x.address.state}}</td>
+                    <td>{{x.address.country}}</td>
+                    <td>{{x.address.pin}}</td>
+                </tr>
+            </table>
     </tr>
-
 </table>
