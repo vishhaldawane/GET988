@@ -15,6 +15,10 @@ export class BankAccountComponent implements OnInit {
         accountHolder:"Bruce",
         accountBalance:5000, 
         isActive:true,
+
+        show:false,
+        buttonLabel:'Show Balance',
+
         image:'assets/bruce.jpeg',
         address:{
           area:"Ram Mahal",
@@ -32,6 +36,10 @@ export class BankAccountComponent implements OnInit {
         accountHolder:"James",
         accountBalance:6000, 
         isActive:true,
+
+        show:false,
+        buttonLabel:'Show Balance',
+
         image:'assets/james.jpeg',
         address:{
           area:"Raheem Mnzil",
@@ -49,6 +57,10 @@ export class BankAccountComponent implements OnInit {
         accountHolder:"Steve",
         accountBalance:7000, 
         isActive:true,
+
+        show:false,
+        buttonLabel:'Show Balance',
+
         image:'assets/steve.jpeg',
         address:{
           area:"Happy Home",
@@ -68,5 +80,16 @@ export class BankAccountComponent implements OnInit {
       this.baObj.accountHolder="Smith";
       this.baObj.accountBalance=5555;
   }
-
+  
+  showBalance(x : BankAccount) {
+    if(!x.show) {
+      x.show = true;
+      x.buttonLabel="Hide Balance";
+    } 
+    else {
+      x.show = false;
+      x.buttonLabel="Show Balance";
+    }
+    console.log(x.show);
+  }
 }

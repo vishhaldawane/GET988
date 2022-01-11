@@ -34,7 +34,13 @@
     <tr *ngFor="let x of baObjArray">
         <td>{{x.accountNumber}}</td>
         <td>{{x.accountHolder}}</td>
-        <td>{{x.accountBalance}}</td>
+        <td>
+            <button (click)="showBalance(x)">{{x.buttonLabel}}</button>
+            <div *ngIf="x.show">    
+                {{x.accountBalance}}
+            </div>
+
+        </td>
         <td><div *ngIf="x.isActive; else PopCorn"> Active  </div>
             <ng-template #PopCorn>InActive </ng-template>
         </td>

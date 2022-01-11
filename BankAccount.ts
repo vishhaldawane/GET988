@@ -5,6 +5,9 @@ export class BankAccount {
     isActive: boolean;
     image: string;
     address : Address = new Address();
+    
+    show: boolean=false;
+    buttonLabel="Show Balance";
 
     constructor() {
         this.accountNumber=10;
