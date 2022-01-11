@@ -15,5 +15,29 @@
         <td>Account Balance</td>
         <td>{{baObj.accountBalance}}</td>
     </tr>
+    <tr>
+        <td>Account Status</td>
+        <td><div *ngIf="baObj.isActive; else PopCorn"> Active  </div>
+            <ng-template #PopCorn>InActive </ng-template>
+    </td>
+    </tr>
+
+</table>
+
+
+<hr>
+
+<table border=5>
+    <th>Account Number</th>
+    <th>Account Holder</th>
+    <th>Account Balance</th>
+    <th>Account Status</th>
+    <tr *ngFor="let x of baObjArray">
+        <td>{{x.accountNumber}}</td>
+        <td>{{x.accountHolder}}</td>
+        <td>{{x.accountBalance}}</td>
+        <td><div *ngIf="x.isActive; else PopCorn"> Active  </div>
+            <ng-template #PopCorn>InActive </ng-template>
+    </tr>
 
 </table>
