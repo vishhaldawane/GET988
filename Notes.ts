@@ -78,4 +78,37 @@ Fixed.ts
   }
   5. open app.component.html
   <button (click)="runMe()"> Have Food </button>
+
+
+1. ng g m currency
+                        (1)currency <= module
+                        |
+                ----------------------------------------------------
+                |                   |    |                       |CurrencyConverterService(3)
+                | (2)               |    |                       |  |
+2. ng g c CurrencyConverterComponent| (1)currency.module.ts currency-converter.service.ts <=service
+                        |      Currency.ts (4)                      | (3)
+        ---------------------------------------------      convert(curr:Currency) (3)
+        | (2)                   |        | (2)                     |      
+currency-conveter.component.ts  | currency-converter.component.css |
+     |           currency-converter.component.html (2)             |
+     Currency's       sendForConversion() -------------------------+   
+     object is           | ccs.convert();     
+     |                   |                                     
+theCurrency <--------used by this html
+   |
+   constructor(ccs: CurrencyConverterService){}
+
+  3. ng g s currency/CurrencyConverter
+
+  4. create a ts file by clicking on currency  folder 
+     -> new file -> Currency.ts
+  5. a.make an object of Currency class as theCurrency;   
+     b.make a constructor to initialilze the service
+        constructor(private ccs: CurrencyConverterService) { }
+     c.make a sendForConversion() function 
+                in -> currency-conveter.component.ts
+     d. invoke the convert() method via ccs based on UI click
+     
+  5. design the UI inside currency-converter.component.html
 */
