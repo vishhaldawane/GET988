@@ -1,7 +1,88 @@
+<!-- 
+<h1> Angular Routing </h1>
+<a routerLink='home'> Home </a>
+<a routerLink='about'> About Us </a>
+<a routerLink='privacy'> Privacy Policy</a>
+<a routerLink='terms'> Terms and Conditions </a> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">Angular Routing</a>
+
+    <button class="navbar-toggler" 
+            type="button" 
+            (click)="toggleNavbar()" 
+            data-toggle="collapse" 
+            data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div 
+        class="collapse navbar-collapse" 
+        [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" 
+                    routerLink="" 
+                    routerLinkActive="active">Home 
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" 
+                routerLink="about" 
+                routerLinkActive="active">About Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" 
+                routerLink="privacy" 
+                routerLinkActive="active">Privacy Policy</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" 
+                routerLink="terms" 
+                routerLinkActive="active">Terms and Conditions</a>
+            </li>
+
+      </ul>
+
+    </div>
+  </nav>
+  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+<router-outlet></router-outlet>
 
 
+
+
+
+<!--
+    <h1> User Information </h1>
+<app-user></app-user>
+
+
+<app-currency-converter></app-currency-converter>
+
+
+<app-savings-account></app-savings-account>
+<app-fixed-deposit></app-fixed-deposit>
+<app-current-account></app-current-account>
+<app-add-payee></app-add-payee>
+<app-view-payee></app-view-payee>
+<app-delete-payee></app-delete-payee>
+<app-fund-transfer></app-fund-transfer>
+<button (click)="runMe()"> Calculate </button>
+<button (click)="eat()"> Have Food </button>
 <app-bank-account></app-bank-account>
-<!-- <h2> this is my app heading </h2>
+ <h2> this is my app heading </h2>
 <h1> hello {{title}} </h1>
 <h3> Physics is {{ phy }} </h3>
 <h3> Chemistry is {{ chem }} </h3>
