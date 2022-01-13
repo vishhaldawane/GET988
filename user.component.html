@@ -1,2 +1,17 @@
 <p>user works!</p>
-<button (click)="fetchIt()"> Fetch all user data </button>
+<button (click)="fetchToDo()"> Fetch all ToDo data </button>
+<button (click)="fetchUsers()"> Fetch all Users data </button>
+
+<table border=3 cellpadding=5 cellspacing=5>
+    <th> User Id </th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Completed</th>
+<tr *ngFor="let t of allToDoData">
+    <td>{{ t.userId}}</td>
+    <td> {{t.id}}</td>
+    <td> {{t.title}}</td>
+    <td> {{t.completed}}</td>
+</tr>
+
+</table>
